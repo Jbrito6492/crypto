@@ -12,8 +12,7 @@ exports.retrieveSimpleRateOfReturn = (req, res) => {
   console.log("testing in the method")
   PythonShell.run('main.py', options, function (err, results) {
     if (err) throw err;
-    console.log('results: %j', results);
-    res.end();
+    res.send(results.toString());
   });
 };
 
