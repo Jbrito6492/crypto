@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Display from "./Display.jsx";
 import axios from "axios";
+import styles from "../../css/app.css";
 
 export default function App() {
   const [state, setState] = useState({ data: [], hasLoaded: false });
@@ -16,12 +17,10 @@ export default function App() {
   }, []);
   return (
     <>
-      {hasLoaded && (
-        <>
-          <h1>Tracker</h1>
-          <Display data={data} />
-        </>
-      )}
+      <div className={styles.container}>
+        <h1>Crypto Tracker</h1>
+        {hasLoaded && <Display title={"simple return"} data={data} />}
+      </div>
     </>
   );
 }
