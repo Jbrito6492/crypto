@@ -1,8 +1,19 @@
 import sys
 import numpy as np
 from pandas_datareader import data as wb
-import matplotlib.pyplot as plt
 
-BTC = wb.DataReader('BTC-USD', data_source='yahoo', start='2015-1-1')
-BTC['simple_return'] = (BTC['Adj Close'] / BTC['Adj Close'].shift(1)) - 1
-print(BTC['simple_return'])
+
+def retrieve_simple_returns(ticker):
+    Ticker = wb.DataReader(ticker, data_source='yahoo', start='2018-1-1')
+    Ticker['simple_return'] = (
+        Ticker['Adj Close'] / Ticker['Adj Close'].shift(1)) - 1
+    avg_returns_a = Ticker['simple_return'].mean() * 365
+    simple_returns[ticker] = str(round(avg_returns_a, 5) * 100) + '%'
+
+
+simple_returns = {}
+
+for t in sys.argv[1:]:
+    retrieve_simple_returns(t)
+
+print(simple_returns)

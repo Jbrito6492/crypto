@@ -5,6 +5,7 @@ const options = {
   mode: 'text',
   pythonOptions: ['-u'],
   scriptPath: path.join(__dirname, '..', '..', 'data_analysis'),
+  args: ['BTC-USD', 'ETH-USD', 'ADA-USD', 'LTC-USD', 'DOGE-USD']
 };
 
 
