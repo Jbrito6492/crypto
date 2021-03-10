@@ -12,7 +12,7 @@ const options = {
 exports.retrieveSimpleRateOfReturn = (req, res) => {
   PythonShell.run('main.py', options, function (err, results) {
     if (err) throw err;
-    res.send(results);
+    res.json(results[0]);
   });
 };
 

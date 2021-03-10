@@ -10,15 +10,18 @@ d = datetime.timedelta(days=365)
 a = tod - d
 
 
+simple_returns = []
+
+
 def retrieve_simple_returns(t):
+    t_return = {}
     Ticker = wb.DataReader(t, data_source="yahoo", start=a)
     Ticker["simple_return"] = (
         Ticker["Adj Close"] / Ticker["Adj Close"].shift(1)) - 1
     avg_returns_d = Ticker["simple_return"].mean()
-    simple_returns[t] = "{s_return:.5f}%".format(s_return=avg_returns_d * 100)
+    t_return[t] = "{s_return:.5f}%".format(s_return=avg_returns_d * 100)
+    simple_returns.append(t_return)
 
-
-simple_returns = {}
 
 for t in sys.argv[1:]:
     retrieve_simple_returns(t)

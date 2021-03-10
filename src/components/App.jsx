@@ -16,8 +16,12 @@ export default function App() {
   }, []);
   return (
     <>
-      <h1>Tracker</h1>
-      {hasLoaded && <Display data={data} />}
+      {hasLoaded && (
+        <>
+          <h1>Tracker</h1>
+          <Display data={data} />
+        </>
+      )}
     </>
   );
 }
