@@ -10,10 +10,9 @@ const options = {
 
 
 exports.retrieveSimpleRateOfReturn = (req, res) => {
-  console.log("testing in the method")
   PythonShell.run('main.py', options, function (err, results) {
     if (err) throw err;
-    res.send(results.toString());
+    res.json(results);
   });
 };
 
