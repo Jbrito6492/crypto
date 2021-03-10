@@ -2,7 +2,7 @@ const path = require('path');
 const { PythonShell } = require('python-shell');
 
 const options = {
-  mode: 'text',
+  mode: 'json',
   pythonOptions: ['-u'],
   scriptPath: path.join(__dirname, '..', '..', 'data_analysis'),
   args: ['BTC-USD', 'ETH-USD', 'ADA-USD', 'LTC-USD', 'DOGE-USD']
@@ -12,7 +12,7 @@ const options = {
 exports.retrieveSimpleRateOfReturn = (req, res) => {
   PythonShell.run('main.py', options, function (err, results) {
     if (err) throw err;
-    res.json(results);
+    res.send(results);
   });
 };
 

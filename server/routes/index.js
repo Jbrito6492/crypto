@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const mainController = require('../controllers');
 
-router.get('/', mainController.retrieveSimpleRateOfReturn);
+router.get('/home', mainController.retrieveSimpleRateOfReturn);
 
 module.exports = router;

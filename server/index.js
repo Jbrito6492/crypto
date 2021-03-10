@@ -8,9 +8,10 @@ const port = process.env.PORT || 3333;
 
 app.use(cors());
 app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, '..', 'public', 'dist')));
+
 app.use('/', router);
 
-app.use(express.static(path.join(__dirname, '..', 'public', 'dist')));
 app.listen(port, () => {
   console.log('listening on port:', port);
 });
