@@ -9,17 +9,18 @@ export default function App() {
 
   useEffect(() => {
     axios
-      .get("/home")
+      .get("/sreturn")
       .then(({ data }) => {
         setState({ ...state, data, hasLoaded: true });
       })
       .catch((err) => console.log(err));
   }, []);
+
   return (
     <>
       <div className={styles.container}>
         <h1>Crypto Tracker</h1>
-        {hasLoaded && <Display title={"simple return"} data={data} />}
+        {hasLoaded && <Display data={data} />}
       </div>
     </>
   );

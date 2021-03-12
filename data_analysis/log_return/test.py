@@ -15,10 +15,10 @@ log_returns = []
 def retrieve_log_returns(t):
     t_return = {}
     Ticker = wb.DataReader(t, data_source="yahoo", start=a)
-    Ticker["log_return"] = (
+    Ticker["log_return"] = np.log(
         Ticker["Adj Close"] / Ticker["Adj Close"].shift(1))
     avg_returns_d = Ticker["log_return"].mean()
-    t_return[t] = "{s_return:.5f}%".format(s_return=avg_returns_d * 100)
+    t_return[t] = "{l_return:.5f}%".format(l_return=avg_returns_d * 100)
     log_returns.append(t_return)
 
 

@@ -14,12 +14,13 @@ simple_returns = []
 
 
 def retrieve_simple_returns(t):
-    t_return = {}
+    t_return = []
     Ticker = wb.DataReader(t, data_source="yahoo", start=a)
     Ticker["simple_return"] = (
         Ticker["Adj Close"] / Ticker["Adj Close"].shift(1)) - 1
     avg_returns_d = Ticker["simple_return"].mean()
-    t_return[t] = "{s_return:.5f}%".format(s_return=avg_returns_d * 100)
+    t_return.append(t)
+    t_return.append("{s_return:.5f}%".format(s_return=avg_returns_d * 100))
     simple_returns.append(t_return)
 
 
