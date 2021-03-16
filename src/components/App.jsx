@@ -19,8 +19,12 @@ export default function App() {
   return (
     <>
       <div className={styles.container}>
-        <h1>Crypto Tracker</h1>
-        {hasLoaded && <Display data={data} />}
+        {hasLoaded && (
+          <>
+            <h1>Crypto Tracker</h1>
+            <Display title="simple return" info={data} />
+          </>
+        )}
       </div>
     </>
   );
