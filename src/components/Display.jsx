@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import DashBoard from "./DashBoard.jsx";
 import styles from "../../css/display.css";
 
 export default function Display({ title, info }) {
@@ -16,6 +17,7 @@ export default function Display({ title, info }) {
     <>
       <h5>{title}</h5>
       <div className={styles.infoContainer}>{information}</div>
+      <DashBoard />
     </>
   );
 }
