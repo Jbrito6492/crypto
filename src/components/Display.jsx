@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar.jsx";
-import NavItem from "./NavItem.jsx";
 import axios from "axios";
 import styles from "../../css/display.css";
 
