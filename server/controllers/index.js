@@ -4,7 +4,7 @@ const { PythonShell } = require('python-shell');
 const options = {
   mode: 'json',
   pythonOptions: ['-u'],
-  args: ['BTC-USD', 'ETH-USD', 'ADA-USD', 'LTC-USD', 'DOGE-USD']
+  args: ['BTC-USD', 'ETH-USD', 'AVAX-USD', 'LTC-USD', 'DOGE-USD']
 };
 
 
@@ -25,8 +25,8 @@ exports.retrieveLogRateOfReturn = (req, res) => {
 }
 
 exports.retrieveBeta = (req, res) => {
-  console.log(req.body);
-  options.scriptPath = path.join(__dirname, '..', '..', 'data_analysis', 'log_return');
+  options.scriptPath = path.join(__dirname, '..', '..', 'data_analysis', 'beta');
+  options.args = req.query.ticker;
   PythonShell.run('test.py', options, function (err, results) {
     if (err) throw err;
     res.json(results[0]);

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Display from "./Display.jsx";
+import DashBoard from "./DashBoard.jsx";
 import axios from "axios";
 import styles from "../../css/app.css";
 
@@ -22,7 +22,7 @@ export default function App() {
         {hasLoaded && (
           <>
             <h1>Crypto Tracker</h1>
-            <Display title="simple return" info={data} />
+            <DashBoard info={data} />
           </>
         )}
       </div>

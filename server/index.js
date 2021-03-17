@@ -3,10 +3,12 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const router = require('./routes');
 const port = process.env.PORT || 3333;
 
 app.use(cors());
+app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '..', 'public', 'dist')));
 

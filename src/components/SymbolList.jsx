@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function SymbolList() {
+export default function SymbolList(props) {
   const symbols = [
     "BTC-USD",
     "ETH-USD",

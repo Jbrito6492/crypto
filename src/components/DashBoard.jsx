@@ -1,12 +1,13 @@
 import React from "react";
-import SymbolList from "./SymbolList.jsx";
+import SimpleReturn from "./SimpleReturn.jsx";
+import Beta from "./Beta.jsx";
+import styles from "../../css/dashboard.css";
 
-export default function DashBoard(props) {
+export default function DashBoard({ info }) {
   return (
-    <>
-      <select className="form-select" aria-label="Default select example">
-        <SymbolList />
-      </select>
-    </>
+    <div className={styles.container}>
+      <SimpleReturn info={info} />
+      <Beta />
+    </div>
   );
 }
