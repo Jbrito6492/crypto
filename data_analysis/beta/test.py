@@ -20,7 +20,7 @@ def calculate_beta(t):
     cov_with_market = cov.iloc[0, 1]
     market_var = sec_returns['BITW'].var() * 365
     t_beta = cov_with_market / market_var
-    print(t_beta)
+    print("%.5f" % t_beta)
 
 
 calculate_beta(sys.argv[1])
